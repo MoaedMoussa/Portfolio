@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Moaed Moussa – Technical Portfolio</title>
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#f4f6f8; --surface:#ffffff; --ink:#14202b; --muted:#53626f; --line:#d6dde3; --accent:#0b6b63; --accent-ink:#ffffff;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#10171d; --surface:#17212a; --ink:#e8eef2; --muted:#9db0bd; --line:#2b3a46; --accent:#4cc2b5; --accent-ink:#06201d;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#10171d; --surface:#17212a; --ink:#e8eef2; --muted:#9db0bd; --line:#2b3a46; --accent:#4cc2b5; --accent-ink:#06201d;
+  color-scheme:dark;
+}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:760px;margin:0 auto;padding:48px 22px 72px}
+h1{font:700 2.4rem/1.15 Georgia,"Times New Roman",serif;margin:0 0 8px}
+h2{font:700 1.55rem/1.25 Georgia,"Times New Roman",serif;margin:56px 0 6px}
+h3{font-size:1.1rem;margin:0 0 4px}
+p{margin:0 0 14px;max-width:68ch}
+.lead{font-size:1.1rem;color:var(--muted)}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0 0}
+a{color:var(--accent)}
+.btn{display:inline-block;padding:9px 16px;border-radius:6px;font-weight:600;text-decoration:none;background:var(--accent);color:var(--accent-ink);border:1px solid var(--accent)}
+.btn.alt{background:transparent;color:var(--accent)}
+a:focus-visible,.btn:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.project{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:26px 24px;margin-top:18px}
+.stack{font:0.88rem/1.5 ui-monospace,Menlo,Consolas,monospace;color:var(--muted);margin:0 0 14px}
+ul{margin:0 0 16px;padding-left:20px}
+li{margin-bottom:6px}
+.k{color:var(--muted)}
+.mini{border-top:1px solid var(--line);padding:16px 0}
+.mini:first-of-type{border-top:0}
+dl{margin:0}
+dt{font-weight:700;margin-top:10px}
+dd{margin:0;color:var(--muted)}
+footer{margin-top:56px;color:var(--muted);font-size:.92rem}
+@media (max-width:520px){h1{font-size:1.9rem}main{padding-top:32px}}
+</style>
+</head>
+<body>
+<main>
+<h1>Moaed Moussa</h1>
+<p class="lead">Software Engineering student at Abu Dhabi University (expected Fall 2027), looking for a winter internship in full-stack and software engineering. I build web, mobile and game projects and ship them end to end.</p>
+<div class="links">
+  <a class="btn" href="https://github.com/MoaedMoussa/MoaedMoussa/blob/main/README.md">GitHub</a>
+  <a class="btn alt" href="https://linkedin.com/in/moaed-moussa">LinkedIn</a>
+  <a class="btn alt" href="mailto:moaed06@icloud.com">moaed06@icloud.com</a>
+</div>
+
+<h2>Featured projects</h2>
+<p class="k">Two live products you can open right now, and a multiplayer game.</p>
+
+<section class="project">
+  <h3>PathForge Academy</h3>
+  <p class="stack">React, TypeScript, Vite, Express, Drizzle ORM, Zod, Firebase</p>
+  <p>An interactive learning platform that makes algorithms visible. Learners watch pathfinding algorithms run on grids and levels that are generated on the spot.</p>
+  <ul>
+    <li>TypeScript monorepo: React/Vite client, Express API, a shared Zod contract and a Drizzle schema, so client and server agree on types.</li>
+    <li>6 pathfinding algorithms (A*, Dijkstra, BFS, bidirectional BFS, greedy BFS, DFS) and 3 procedural level generators (BSP, cellular automata, DFS maze).</li>
+    <li>Engine correctness is covered by 81 Vitest unit tests.</li>
+    <li>A 25-topic interactive CS curriculum built into the product.</li>
+  </ul>
+  <div class="links"><a class="btn" href="https://path-forge.pages.dev/">Open live app</a></div>
+</section>
+
+<section class="project">
+  <h3>Norra Scores</h3>
+  <p class="stack">React, Node.js, Express, SWR, Socket.IO, ESPN APIs, PWA</p>
+  <p>An ad-free live sports app. It started with football and grew to six sports, and installs on a phone like a native app.</p>
+  <ul>
+    <li>Real-time scores, lineups and standings served through a self-hosted Express API proxy.</li>
+    <li>Expanded to 5 more sports across 16 ESPN endpoints.</li>
+    <li>SWR caching over a Socket.IO score-push channel cuts redundant requests; offline caching keeps the app usable without a connection.</li>
+  </ul>
+  <div class="links"><a class="btn" href="https://norra-studio.ai.studio">Open live app</a></div>
+</section>
+
+<section class="project">
+  <h3>Sword Wars (multiplayer Roblox game)</h3>
+  <p class="stack">Luau, Roblox Studio, DataStoreService, MarketplaceService</p>
+  <p>A multiplayer arena game where the server owns all game rules, so players cannot cheat by editing their own client.</p>
+  <ul>
+    <li>Server-authoritative round engine: queue, homing ball and best-of-3 matches. Client input is validated for range, cooldown and type.</li>
+    <li>Progression economy: weighted gacha with 10 skins in 4 rarities, a 10-rank prestige system and Robux developer products.</li>
+    <li>Clan War mode, a 1,500 HP World Boss and leaderboards, across 50+ scripts.</li>
+  </ul>
+  <div class="links"><a class="btn" href="https://www.roblox.com/games/136570053097768/Sword-Wars">Play on Roblox</a></div>
+</section>
+
+<h2>More projects</h2>
+<div class="mini">
+  <h3>V2X-SecNet: autonomous vehicle intersection simulator</h3>
+  <p class="stack">TypeScript, React 19, D3.js, Web Crypto API</p>
+  <p>Signal-free 4-lane intersection with a 3,800-line TypeScript physics engine, a roadside-unit arbiter with 3 scheduling policies, collision prediction with automatic braking, and a secure telemetry pipeline (ECDSA P-256) with 4 injectable attack types.</p>
+</div>
+<div class="mini">
+  <h3>DeenComplete: bilingual mobile app</h3>
+  <p class="stack">React Native (Expo Router), Express, PostgreSQL, Drizzle ORM, OpenAPI</p>
+  <p>Arabic/English companion app with 15 screens, GPS prayer times and Qibla with an offline fallback, a page-cached Quran reader and a Zakat calculator using live metal prices.</p>
+</div>
+
+<h2>Skills</h2>
+<dl>
+  <dt>Languages</dt><dd>TypeScript, JavaScript, Luau, C, Java, Python, SQL</dd>
+  <dt>Web and mobile</dt><dd>React, React Native, Node.js, Express, Vite, Tailwind CSS, D3.js, PWAs</dd>
+  <dt>Data and APIs</dt><dd>PostgreSQL, Drizzle ORM, Firebase Firestore, Zod, REST, OpenAPI, WebSockets</dd>
+  <dt>Testing and tooling</dt><dd>Vitest, React Testing Library, Git/GitHub, Azure DevOps, CI/CD</dd>
+  <dt>Systems</dt><dd>Linux administration (RHEL), TCP/IP networking, Cisco Packet Tracer</dd>
+</dl>
+
+<footer>
+  Abu Dhabi, UAE. Certifications: Microsoft DevOps Engineering Professional Certificate, Google AI for App Deployment, Red Hat System Administration I (RH124).
+</footer>
+</main>
+</body>
+</html>
